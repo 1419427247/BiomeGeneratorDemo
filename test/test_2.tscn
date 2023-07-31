@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx5iwuckgrmih"]
+
+[ext_resource type="Script" path="res://test/test_2.gd" id="1_44r6t"]
+[ext_resource type="Texture2D" uid="uid://bgyham8t0sj3h" path="res://icon.svg" id="2_3m7nq"]
+
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_44r6t")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+offset_right = 256.0
+offset_bottom = 256.0
+mouse_filter = 2
+texture = ExtResource("2_3m7nq")
+
+[node name="Expand" type="Button" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+
+[node name="Up" type="Button" parent="."]
+layout_mode = 0
+offset_top = -33.0
+offset_right = 256.0
+offset_bottom = -1.0
+text = "+"
+
+[node name="Down" type="Button" parent="."]
+layout_mode = 0
+offset_top = 256.0
+offset_right = 256.0
+offset_bottom = 288.0
+text = "+"
+
+[node name="Left" type="Button" parent="."]
+layout_mode = 0
+offset_left = -32.0
+offset_bottom = 256.0
+text = "+"
+
+[node name="Right" type="Button" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 288.0
+offset_bottom = 256.0
+text = "+"
+
+[connection signal="pressed" from="TextureRect/Expand" to="." method="_on_expand_pressed"]
+[connection signal="pressed" from="Up" to="." method="_on_create_chunk_pressed" binds= [0]]
+[connection signal="pressed" from="Down" to="." method="_on_create_chunk_pressed" binds= [1]]
+[connection signal="pressed" from="Left" to="." method="_on_create_chunk_pressed" binds= [2]]
+[connection signal="pressed" from="Right" to="." method="_on_create_chunk_pressed" binds= [3]]

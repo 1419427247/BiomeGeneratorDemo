@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqxv2frdsbqhp"]
+
+[ext_resource type="Script" path="res://test/test_1.gd" id="1_4d1en"]
+[ext_resource type="Texture2D" uid="uid://bgyham8t0sj3h" path="res://icon.svg" id="2_jslme"]
+
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4d1en")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+texture = ExtResource("2_jslme")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+item_count = 3
+selected = 0
+popup/item_0/text = "Random"
+popup/item_0/id = 0
+popup/item_1/text = "Square"
+popup/item_1/id = 1
+popup/item_2/text = "Circle"
+popup/item_2/id = 2
+
+[node name="Clear" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Clear"
+
+[node name="Expand" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Expand"
+
+[node name="Smooth" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Smooth"
+
+[node name="Noise" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Noise"
+
+[node name="SwitchScene" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Switch to the next scene"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Expand" to="." method="_on_expand_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Smooth" to="." method="_on_smooth_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Noise" to="." method="_on_noise_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/SwitchScene" to="." method="_on_switch_scene_pressed"]
