@@ -1,5 +1,32 @@
 # BiomeGeneratorDemo
 
+Procedural Biome Map Generation Demo
+This demo shows how to use the Midpoint Displacement Algorithm to create natural and random biome maps.
+
+![Alt text](img/%E5%9B%BE%E7%89%874.png)
+
+![Alt text](img/%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE.png)
+
+![Alt text](<img/屏幕截图 2023-08-01 013838.png>)
+
+![Alt text](<img/屏幕截图 2023-08-01 171206.png>)
+
+The Midpoint Displacement Algorithm is a fractal algorithm that can generate natural-looking shapes by recursively subdividing a rectangle into smaller parts and displacing the midpoint randomly.
+
+Algorithm Principles
+Given an initial line segment or rectangle, recursively subdivide it and displace the midpoint or center point at each step, causing the curve or surface to take on an irregular shape. As the number of subdivisions increases, the curve or surface approaches a realistic natural landscape. Specifically, the Midpoint Displacement Algorithm involves the following steps:
+
+1. Start with an initial square grid, with preset height values at the four corner vertices, forming a rectangle composed of (2*n + 1)^2 squares, where n is the number of preset iterations. The corner vertices can have arbitrary random attribute values and heights, as shown (black indicates empty):
+![Alt text](img/%E5%9B%BE%E7%89%871.png)
+
+2. Calculate the height values and attributes of the midpoints on the four sides of the rectangle. The attribute of a midpoint is randomly chosen from one of its two adjacent corners, while the height is the average of the two corners. After the midpoints of the four sides are computed, calculate the height and attribute of the center point of the rectangle as the average of the four corners plus a random offset:
+
+![Alt text](img/%E5%9B%BE%E7%89%872.png)
+
+3. Subdivide the rectangle into four smaller rectangles again, and repeat steps 2 and 3 until every square is filled. The final effect:
+
+![Alt text](img/%E5%9B%BE%E7%89%873.png)
+
 
 # 生态群落地图生成示例
 这个Demo展示了如何使用中点位移算法（Midpoint Displacement Algorithm）来创建自然且随机的生态群落。
