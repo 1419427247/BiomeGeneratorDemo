@@ -2,8 +2,6 @@ extends Control
 
 @onready var texture_rect: TextureRect = $TextureRect
 
-@onready var button: Button = $Button
-
 var biome_generator : BiomeGenerator = null
 
 func _ready() -> void:

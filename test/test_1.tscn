@@ -60,6 +60,10 @@ text = "Smooth"
 layout_mode = 2
 text = "Noise"
 
+[node name="Rim" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Rim"
+
 [node name="SwitchScene" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Switch to the next scene"
@@ -68,4 +72,5 @@ text = "Switch to the next scene"
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Expand" to="." method="_on_expand_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Smooth" to="." method="_on_smooth_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Noise" to="." method="_on_noise_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Rim" to="." method="_on_rim_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/SwitchScene" to="." method="_on_switch_scene_pressed"]

@@ -76,3 +76,32 @@ func _input(event: InputEvent) -> void:
 
 func _on_switch_scene_pressed() -> void:
 	get_tree().change_scene_to_file("res://test/test_2.tscn")
+
+
+func _on_rim_pressed() -> void:
+	var filter_size : int = 1
+	var step : int = 1
+	var new_biome : Dictionary = {}
+
+
+	for x in range(filter_size,biome_generator.size.x - filter_size,step):
+		for y in range(filter_size,biome_generator.size.y - filter_size,step):
+			var is_rim : bool = false
+			var id = biome_generator.get_biome(Vector2i(x,y))
+			for i in range(-filter_size,filter_size + 1):
+				for j in range(-filter_size,filter_size + 1):
+					if biome_generator.get_biome(Vector2i(x + i,y + j)) != id:
+						is_rim = true
+						break
+			if is_rim:
+				new_biome[Vector2i(x,y)] = 1
+			else:
+				new_biome[Vector2i(x,y)] = 0
+	
+	for i in range(biome_generator.size.x):
+		for j in range(biome_generator.size.y):
+			if new_biome.has(Vector2i(i,j)):
+				biome_generator.set_biome(Vector2i(i,j),new_biome[Vector2i(i,j)])
+			else:
+				biome_generator.set_biome(Vector2i(i,j),0)
+	generate_image()

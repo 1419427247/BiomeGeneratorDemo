@@ -90,7 +90,7 @@ func fill():
 					nine_palaces.set_biome(Vector2i.ZERO,[top_biome,bottom_biome,left_biome,right_biome][random_number_generator.randi() % 4])
 	)
 
-func smooth(filter_size : int = 1,step : int = 2) -> void:
+func smooth(filter_size : int = 1,step : int = 1) -> void:
 	for x in range(filter_size,size.x - filter_size,step):
 		for y in range(filter_size,size.y - filter_size,step):
 			var biomes : Array = []
