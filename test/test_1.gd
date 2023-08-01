@@ -77,13 +77,10 @@ func _input(event: InputEvent) -> void:
 func _on_switch_scene_pressed() -> void:
 	get_tree().change_scene_to_file("res://test/test_2.tscn")
 
-
 func _on_rim_pressed() -> void:
 	var filter_size : int = 1
 	var step : int = 1
 	var new_biome : Dictionary = {}
-
-
 	for x in range(filter_size,biome_generator.size.x - filter_size,step):
 		for y in range(filter_size,biome_generator.size.y - filter_size,step):
 			var is_rim : bool = false
